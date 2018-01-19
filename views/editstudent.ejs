@@ -1,0 +1,48 @@
+<% include layouts/header.ejs %>
+
+  <script>
+function myFunction() {
+    document.getElementById("myForm").reset();
+}
+</script>
+
+<div class="content_form">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <h2>Update Student</h2>
+
+	  <% if(errors.length > 0) { %>
+
+  <div class="alert alert-danger">
+    <strong>Error!</strong> <%=errors[0].msg%>
+
+
+  </div>
+  <% } %>
+
+  <form action="/students/UpdateStudent" method="POST" id="myForm">
+
+    <div class="form-group">
+      <input type="hidden" class="form-control" name="userId" id="userId" value=<%= currentStudent.userId %>>
+    </div>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" name="name" id="name" value=<%= currentStudent.name %>>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" name="email" id="email" value=<%= currentStudent.email %>>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" class="form-control" name="phone" id="phone" value=<%= currentStudent.phone %>>
+    </div>
+    <input type="button"  class="btn btn-default" onclick="myFunction()" value="Reset">
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+</div>
+</div>
+  </div>
+<% include layouts/footer.ejs %>

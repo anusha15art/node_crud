@@ -1,0 +1,45 @@
+<% include layouts/header.ejs %>
+
+  <div class="container">
+    <div class="row">
+  <h2>Student Information</h2>
+  <a href="/students/AddStudent" style="text-decoration:none;"class="btn pull-right">AddStudents</a>
+  <form action="/students/SearchStudent" method="POST">
+	<input type="text" name="searchStr" />
+  <button type="submit" class="btn btn-default">Search cfghcfhfghfgh</button>
+  </form>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i=0; i<allStudents.length; i++) {%>
+      <tr>
+        <td><%= allStudents[i].name %></td>
+        <td><%= allStudents[i].email %></td>
+        <td><%= allStudents[i].phone %></td>
+        <td>
+           <a href="/students/ViewStudent?userId=<%= allStudents[i].userId  %>" class="btn btn-link btn-primary"><img src="img/ico1.png" style="width:30px;height:22px;"/></a>
+           <a href="/students/DeleteStudent?userId=<%= allStudents[i].userId  %>" class="btn btn-link btn-primary"> <img src="img/close.png" style="width:35Spx;height:35px;"/></a>
+
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+<script>
+function searchClick(){
+	alert(document.getElementById('searchStr').value);
+}
+</script>
+<% include layouts/footer.ejs %>

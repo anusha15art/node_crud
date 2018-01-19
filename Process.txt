@@ -1,0 +1,22 @@
+express studentsdemo --view=ejs
+Add items to package.json
+npm install
+create students.js in routers folder
+copy all actions from server.js present in old project and rename "app" to "router"
+replace deleteUser string with DeleteStudent and change link on successful delete
+Add below lines from old project to students.js
+    const MongoClient = require('mongodb').MongoClient;
+	var db;
+	MongoClient.connect('mongodb://127.0.0.1:27017/ClintSide', (err, database) => {
+		if (err) return console.log(err)
+		db = database;
+	})
+place liststudents and layouts foler
+place img folder from old project to public folder
+prefix /students in href AddStudent in liststudents.ejs
+replace index.ejs from old project
+change href in index.ejs
+import uuid in students.js and in package
+copy editstudent.ejs
+change href in editstudent.ejs
+remove padding in search box
